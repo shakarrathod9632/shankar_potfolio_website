@@ -1,0 +1,1 @@
+web: gunicorn shankar_portfolio.wsgi

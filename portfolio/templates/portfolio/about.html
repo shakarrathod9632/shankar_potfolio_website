@@ -1,0 +1,146 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block title %}About — Shankar Rathod{% endblock %}
+
+{% block content %}
+<style>
+/* about page specific tweaks */
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+.about-details {
+  display: grid;
+  gap: 20px;
+}
+.about-section {
+  background: rgba(255,255,255,0.02);
+  border-radius: var(--radius);
+  padding: 18px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.about-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.4);
+}
+.about-section h3 {
+  margin-top: 0;
+  color: var(--accent-2);
+}
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.social-links a {
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .3s ease;
+}
+.social-links a:hover {
+  background: linear-gradient(90deg,var(--accent-2),var(--accent));
+}
+.about-photo {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius);
+}
+.about-photo img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+.about-photo h3 { margin: 12px 0 4px; }
+.about-photo p { margin: 0; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 900px) {
+  .about-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .about-photo img {
+    width: 160px;
+    height: 160px;
+  }
+}
+</style>
+
+<div class="section-title">
+  <h2>About Me</h2>
+  <small class="small">Who I am & what I do</small>
+</div>
+
+<div class="about-wrapper">
+  <!-- Left column: details -->
+  <div class="about-details">
+
+    <div class="about-section">
+      <h3>Personal Details</h3>
+      <p><strong>Name:</strong> Shankar Rathod</p>
+      <p><strong>Gender:</strong> Male</p>
+      <p><strong>Marital Status:</strong> Single</p>
+      <p><strong>Date of Birth:</strong> March 5, 2002</p>
+      <p><strong>Nationality:</strong> Indian</p>
+    </div>
+
+    <div class="about-section">
+      <h3>Contact Information</h3>
+      <p><strong>Phone:</strong> +91 96325 33323</p>
+      <p><strong>Email:</strong> sakkurathod8585@gmail.com</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/shankar-rathod-ab209a2a9/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/shankar_rathod_85/" target="_blank">Instagram</a>
+        <a href="https://github.com/shakarrathod9632" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h3>Address</h3>
+      <p><strong>Permanent:</strong> Vantighudasi, Post: Venkatapur, Taluk: Chincholi, District: Kalaburagi, Karnataka, 585305</p>
+      <p><strong>Current:</strong> K R Puram Bangalore, Karnataka 560036</p>
+    </div>
+
+    <div class="about-section">
+      <h3>Education Background</h3>
+      <p><strong>BCA (Bachelor of Computer Application)</strong> — SunSoft Degree College, Bidar (2020-2023), 8.2 CGPA</p>
+      <p><strong>PUC (Commerce)</strong> — Basava PUC Science College, Bidar (2018-2020), 81%</p>
+      <p><strong>School:</strong> Government Higher School, Kunchawaram — 10th Std, 78%</p>
+    </div>
+
+    <div class="about-section">
+      <h3>Languages</h3>
+      <p>English, Kannada, Hindi, Telugu</p>
+    </div>
+
+    <div class="about-section">
+      <h3>Hobbies & Interests</h3>
+      <p>Exploring new technologies, designing creative UI layouts,playing cricket, travelling, and reading about innovation & culture.</p>
+    </div>
+
+  </div>
+
+  <!-- Right column: image & short summary -->
+  <aside class="about-photo">
+    <img src="{% static 'portfolio/images/shankar.jpg' %}" alt="Shankar Rathod">
+    <h3>Shankar Rathod</h3>
+    <p>Full Stack Developer</p>
+    <p>Bengaluru, India</p>
+    <hr style="border:none;border-top:1px solid rgba(255,255,255,0.05);margin:16px 0">
+    <p class="small">
+      Passionate about building performant and visually stunning digital products.  
+      Experienced in Python, Django, React, and database systems with a focus on scalable, maintainable code.
+    </p>
+  </aside>
+</div>
+{% endblock %}

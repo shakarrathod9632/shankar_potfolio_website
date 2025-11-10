@@ -1,0 +1,199 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block title %}Experience — Shankar Rathod{% endblock %}
+
+{% block content %}
+<style>
+/* --- Experience Page Styling --- */
+.experience-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  margin-top: 10px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(var(--accent), var(--accent-2));
+  border-radius: 4px;
+}
+.timeline-item {
+  position: relative;
+  background: rgba(255,255,255,0.02);
+  padding: 20px;
+  margin-bottom: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.timeline-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.timeline-marker {
+  position: absolute;
+  left: -2px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.job-role {
+  font-size: 18px;
+  font-weight: 700;
+}
+.job-company {
+  font-size: 14px;
+  color: var(--muted);
+}
+.job-period {
+  font-size: 13px;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+.job-desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.job-desc ul {
+  padding-left: 20px;
+  margin: 8px 0 0;
+}
+.job-desc li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.project-links {
+  margin-top: 12px;
+}
+.project-links a {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: var(--accent-2);
+  font-weight: 600;
+  transition: color .25s ease;
+}
+.project-links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 16px;
+  }
+  .timeline::before {
+    left: 4px;
+  }
+  .timeline-marker {
+    left: -5px;
+  }
+  .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .job-role { font-size: 17px; }
+}
+</style>
+
+<div class="section-title">
+  <h2>Professional Experience</h2>
+  <small class="small">Career journey and major achievements</small>
+</div>
+
+<div class="experience-wrapper">
+  <div class="timeline">
+
+    <!-- Current Job -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="job-header">
+        <div>
+          <div class="job-role">Full Stack Developer</div>
+          <div class="job-company">Programmr Technologies Pvt Ltd, Bengaluru, India</div>
+        </div>
+        <div class="job-period">Jan 2025 — Present</div>
+      </div>
+
+      <div class="job-desc">
+        <ul>
+          <li>Spearheaded the development of responsive web applications using <strong>HTML5, CSS3, and JavaScript</strong>, increasing mobile engagement by <strong>35%</strong>.</li>
+          <li>Architected and implemented a <strong>React.js component-based framework</strong> that improved scalability and reduced duplication by <strong>30%</strong>.</li>
+          <li>Enhanced frontend performance via asset optimization, compression, and caching — reducing load time by <strong>25%</strong>.</li>
+          <li>Built and deployed secure full-stack web applications using <strong>Django, Python, and React.js</strong> with authentication modules.</li>
+          <li>Designed and integrated <strong>RESTful APIs</strong>, managed MySQL/PostgreSQL databases, and implemented data-driven dashboards.</li>
+          <li>Collaborated with UI/UX teams to develop responsive, accessible layouts using <strong>Bootstrap</strong> and modern CSS standards.</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://tokyoanalyticx.org/" target="_blank">🌐 Live Project: tokyoanalyticx.org</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal / Freelance Projects -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="job-header">
+        <div>
+          <div class="job-role">Freelance & Personal Projects</div>
+          <div class="job-company">Independent Work & Collaborations</div>
+        </div>
+        <div class="job-period">2022 — 2024</div>
+      </div>
+
+      <div class="job-desc">
+        <ul>
+          <li>Developed numerous <strong>full-stack web applications</strong> integrating Django, REST APIs, and React frontends.</li>
+          <li>Delivered small business websites and internal dashboards focusing on clean UI/UX and responsive layouts.</li>
+          <li>Built custom <strong>WhatsApp automation</strong> tools, dynamic form builders, and content management modules.</li>
+          <li>Worked on end-to-end projects including deployment on cloud platforms (AWS, DigitalOcean) with <strong>CI/CD pipelines</strong>.</li>
+          <li>Contributed to open-source and community tech blogs, writing about <strong>modern web architecture</strong> and scalability.</li>
+        </ul>
+        <div class="project-links">
+          <a href="{% url 'portfolio:project_list' %}">🧠 View My Projects</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internship or Early Role (optional, for timeline depth) -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="job-header">
+        <div>
+          <div class="job-role">Frontend Developer Intern</div>
+          <div class="job-company">7Soft AI, Bengaluru</div>
+        </div>
+        <div class="job-period">2021 — 2022</div>
+      </div>
+      <div class="job-desc">
+        <ul>
+          <li>Assisted in building reusable <strong>React components</strong> and implemented responsive layouts for client projects.</li>
+          <li>Collaborated with backend teams to integrate APIs and maintain <strong>UI consistency</strong> across the platform.</li>
+          <li>Learned to debug and optimize web apps using Chrome DevTools and React Profiler.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

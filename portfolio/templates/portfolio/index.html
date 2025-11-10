@@ -1,0 +1,221 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block title %}Home — Shankar Rathod{% endblock %}
+
+{% block content %}
+<style>
+/* ---- Home Page Styling ---- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-left {
+  flex: 1.1;
+  min-width: 300px;
+}
+.profile-card {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  flex: 0.9;
+  min-width: 260px;
+}
+.profile-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid var(--accent-2);
+}
+.hi {
+  font-size: 18px;
+  color: var(--accent-2);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.h1 {
+  font-size: 42px;
+  margin: 0 0 10px;
+}
+.lead {
+  font-size: 15.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.lead.quote {
+  font-style: italic;
+  color: var(--accent-2);
+  font-size: 14.5px;
+}
+.hero-buttons {
+  margin-top: 18px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .25s ease;
+  border: 1px solid var(--accent-2);
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #fff;
+}
+.btn:hover {
+  opacity: 0.85;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.section-title h2 {
+  margin-bottom: 4px;
+}
+.featured-about {
+  margin-top: 50px;
+  background: rgba(255,255,255,0.02);
+  padding: 26px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.featured-about p {
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.projects {
+  display: grid;
+  {% comment %} grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); {% endcomment %}
+  gap: 18px;
+  margin-top: 20px;
+}
+.project.card {
+  background: rgba(255,255,255,0.03);
+  padding: 16px;
+  border-radius: var(--radius);
+  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+.project.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+}
+.view-all {
+  text-align: center;
+  margin-top: 28px;
+}
+.view-all a {
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: opacity .25s ease;
+}
+.view-all a:hover {
+  opacity: 0.85;
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-left {
+    order: 2;
+  }
+  .profile-card {
+    order: 1;
+  }
+  .h1 {
+    font-size: 34px;
+  }
+  .lead {
+    font-size: 14.5px;
+  }
+}
+</style>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hi">👋 Hello — I build smart, scalable web apps</div>
+    <h1 class="h1">Shankar <span class="accent">Rathod</span></h1>
+
+    <p class="lead">
+      I’m a passionate <strong>Full Stack Developer</strong> specializing in <strong>Python, Django, and React</strong>.  
+      I love creating reliable, visually appealing, and user-centered web applications that solve real-world problems.
+    </p>
+
+    <p class="lead quote">
+      “I design and code with a blend of creativity and logic — crafting solutions that are elegant, performant, and user-friendly.”
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="{% url 'portfolio:project_list' %}">🚀 Explore Projects</a>
+      <a class="btn" href="{% url 'portfolio:contact' %}">Contact Me</a>
+    </div>
+  </div>
+
+  <aside class="profile-card profile-card-animated">
+    <img src="{% static 'portfolio/images/shankar.jpg' %}" alt="Shankar Rathod">
+    <h3 style="margin:10px 0 0">Shankar Rathod</h3>
+    <p class="small">Full Stack Developer</p>
+    <p class="small muted">Bengaluru, India</p>
+  </aside>
+</section>
+
+
+<!-- About Section -->
+<section class="featured-about">
+  <div class="section-title"><h2>About Me</h2></div>
+  <p>I’m a dedicated developer with hands-on experience in designing, building, and deploying modern full-stack applications. My work focuses on performance, scalability, and clean code — leveraging <strong>Django</strong> for robust backends and <strong>React</strong> for dynamic frontends.</p>
+  <p>Currently working at <strong>Programmr Technologies Pvt Ltd</strong> as a <strong>Full Stack Developer</strong>, I enjoy collaborating with teams and turning ideas into impactful software solutions. I’m passionate about improving web experiences through thoughtful design and efficient engineering.</p>
+</section>
+
+
+<!-- Featured Projects -->
+<section style="margin-top:40px">
+  <div class="section-title"><h2>Featured Projects</h2><small class="small">A few of my latest deployments</small></div>
+  <div class="projects">
+
+    <!-- Project 1 -->
+    <a href="https://hr-management-system-nmzq.onrender.com/" class="project card" target="_blank">
+      <h3>HR Management System</h3>
+      <p class="small">Complete HR solution with payroll, attendance tracking, and employee management modules using Django and React.</p>
+    </a>
+
+    <!-- Project 2 -->
+    <a href="https://students-management-system-l1h0.onrender.com/" class="project card" target="_blank">
+      <h3>Student Management System</h3>
+      <p class="small" style="text-decoration: none;">Dynamic student information portal built using Django, HTML, and JavaScript with role-based authentication.</p>
+    </a>
+
+    <!-- Project 3 -->
+    <a href="https://tokyoanalyticx.org/" class="project card" target="_blank">
+      <h3>Tokyo Analyticx</h3>
+      <p class="small">Analytics dashboard built using Django + React for real-time data visualization and system performance monitoring.</p>
+    </a>
+
+    <!-- Project 4 -->
+    <a href="https://expense-tracker-5-poh3.onrender.com/" class="project card" target="_blank">
+      <h3>Expense Tracker</h3>
+      <p class="small">Interactive financial tracker application built with React.js and Django REST framework with visual charts.</p>
+    </a>
+  </div>
+
+  <div class="view-all">
+    <a href="{% url 'portfolio:project_list' %}">🔗 View All Projects</a>
+  </div>
+</section>
+{% endblock %}

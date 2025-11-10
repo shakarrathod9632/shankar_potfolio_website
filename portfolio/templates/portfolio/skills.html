@@ -1,0 +1,194 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block title %}Skills — Shankar Rathod{% endblock %}
+
+{% block content %}
+<style>
+/* ========== SKILLS PAGE (Clean, No Percentage) ========== */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 24px;
+}
+
+.skill-block {
+  background: rgba(255,255,255,0.02);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.skill-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+}
+
+.skill-header {
+  font-size: 18px;
+  color: var(--accent-2);
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background .25s ease, color .25s ease;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.skill-tag:hover {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.skill-summary {
+  text-align: center;
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 40px;
+  line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skill-block {
+    padding: 18px;
+  }
+  .skill-header {
+    font-size: 16px;
+  }
+  .skill-tag {
+    font-size: 13px;
+  }
+}
+</style>
+
+<div class="section-title">
+  <h2>Technical & Soft Skills</h2>
+  <small class="small">Comprehensive overview of my technical and interpersonal strengths</small>
+</div>
+
+<div class="skills-section">
+
+  <!-- Core Technologies -->
+  <div class="skill-block">
+    <div class="skill-header">💻 Core Development</div>
+    <div class="skill-list">
+      <div class="skill-tag">Python</div>
+      <div class="skill-tag">Django</div>
+      <div class="skill-tag">RESTful APIs</div>
+      <div class="skill-tag">React.js</div>
+      <div class="skill-tag">JavaScript (ES6+)</div>
+      <div class="skill-tag">HTML5 / CSS3</div>
+      <div class="skill-tag">Bootstrap / Tailwind</div>
+      <div class="skill-tag">Responsive Design</div>
+    </div>
+  </div>
+
+  <!-- Frontend Frameworks -->
+  <div class="skill-block">
+    <div class="skill-header">🎨 Frontend Frameworks & Tools</div>
+    <div class="skill-list">
+      <div class="skill-tag">React Router</div>
+      <div class="skill-tag">Redux</div>
+      <div class="skill-tag">React Hooks</div>
+      <div class="skill-tag">JSON</div>
+      <div class="skill-tag">Sass / SCSS</div>
+      <div class="skill-tag">TypeScript (Basic)</div>
+      <div class="skill-tag">jQuery</div>
+    </div>
+  </div>
+
+  <!-- Backend -->
+  <div class="skill-block">
+    <div class="skill-header">⚙️ Back-End Development</div>
+    <div class="skill-list">
+      <div class="skill-tag">Advanced Python</div>
+      <div class="skill-tag">Django ORM</div>
+      <div class="skill-tag">FastAPI</div>
+      <div class="skill-tag">Node.js (Basic)</div>
+      <div class="skill-tag">Authentication Systems</div>
+      <div class="skill-tag">REST API Integration</div>
+      <div class="skill-tag">MVC Architecture</div>
+    </div>
+  </div>
+
+  <!-- Databases -->
+  <div class="skill-block">
+    <div class="skill-header">🗄️ Database Management</div>
+    <div class="skill-list">
+      <div class="skill-tag">MySQL</div>
+      <div class="skill-tag">PostgreSQL</div>
+      <div class="skill-tag">SQLite</div>
+      <div class="skill-tag">MongoDB</div>
+      <div class="skill-tag">Database Schema Design</div>
+      <div class="skill-tag">Query Optimization</div>
+    </div>
+  </div>
+
+  <!-- Tools -->
+  <div class="skill-block">
+    <div class="skill-header">🛠️ Developer Tools & Version Control</div>
+    <div class="skill-list">
+      <div class="skill-tag">Git</div>
+      <div class="skill-tag">GitHub</div>
+      <div class="skill-tag">VS Code</div>
+      <div class="skill-tag">GitHub Actions (Basic CI/CD)</div>
+      <div class="skill-tag">Linux / Shell</div>
+      <div class="skill-tag">Debugging & Optimization</div>
+    </div>
+  </div>
+
+  <!-- Testing -->
+  <div class="skill-block">
+    <div class="skill-header">🧪 Testing & Agile Tools</div>
+    <div class="skill-list">
+      <div class="skill-tag">Postman</div>
+      <div class="skill-tag">PyTest (Basic)</div>
+      <div class="skill-tag">Jest (Basic)</div>
+      <div class="skill-tag">React Testing Library</div>
+      <div class="skill-tag">JIRA</div>
+      <div class="skill-tag">Agile & Scrum</div>
+      <div class="skill-tag">Code Review</div>
+    </div>
+  </div>
+
+  <!-- Soft Skills -->
+  <div class="skill-block">
+    <div class="skill-header">🤝 Soft Skills</div>
+    <div class="skill-list">
+      <div class="skill-tag">Team Collaboration</div>
+      <div class="skill-tag">Problem Solving</div>
+      <div class="skill-tag">Communication</div>
+      <div class="skill-tag">Leadership</div>
+      <div class="skill-tag">Adaptability</div>
+      <div class="skill-tag">Time Management</div>
+      <div class="skill-tag">Analytical Thinking</div>
+      <div class="skill-tag">Creativity</div>
+      <div class="skill-tag">Attention to Detail</div>
+    </div>
+  </div>
+</div>
+
+<div class="skill-summary">
+  I take pride in being a <strong>Full Stack Developer</strong> who balances deep technical expertise with strong interpersonal skills.  
+  I thrive in collaborative environments, continuously learn new technologies, and focus on building  
+  <strong>scalable, maintainable, and user-centric software solutions</strong>.
+</div>
+{% endblock %}

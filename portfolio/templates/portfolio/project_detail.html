@@ -1,0 +1,53 @@
+{% extends "portfolio/base.html" %}
+{% block title %}{% if project %}{{ project.title }} — {% endif %}Projects — Shankar Rathod{% endblock %}
+
+{% block content %}
+{% if not_found %}
+  <div class="card">
+    <div class="section-title"><h2>Project not found</h2></div>
+    <p class="small muted">No project with slug <strong>{{ slug }}</strong> was found. Check the projects list.</p>
+    <p><a class="btn" href="{% url 'portfolio:project_list' %}">Back to projects</a></p>
+  </div>
+{% else %}
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <h2 style="margin:0">{{ project.title }}</h2>
+        <div class="small muted">{{ project.summary }}</div>
+      </div>
+      <div>
+        {% for t in project.tech %}
+          <span class="tag">{{ t }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div style="margin-top:18px">
+      <h3>Overview</h3>
+      <p class="small muted">{{ project.summary }}</p>
+
+      <h3 style="margin-top:12px">Tech stack</h3>
+      <div class="small muted">
+        {% for t in project.tech %}{{ t }}{% if not forloop.last %}, {% endif %}{% endfor %}
+      </div>
+
+      <h3 style="margin-top:12px">Gallery / Screenshots</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+        {% if project.images %}
+          {% for img in project.images %}
+            <img src="{{ img }}" alt="screenshot" style="width:220px;border-radius:8px"/>
+          {% endfor %}
+        {% else %}
+          <div class="small muted">No images provided—this is a placeholder.</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div style="margin-top:18px">
+      <a class="btn btn-primary" href="#">Live demo</a>
+      <a class="btn" href="#">Source</a>
+      <a class="btn" href="{% url 'portfolio:project_list' %}">Back</a>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

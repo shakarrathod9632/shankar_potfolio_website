@@ -1,0 +1,21 @@
+{% extends "portfolio/base.html" %}
+{% block title %}Education — Shankar Rathod{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="section-title"><h2>Education</h2><small class="small">Academic background</small></div>
+
+  {% for d in degrees %}
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <strong>{{ d.degree }}</strong>
+          <div class="small muted">{{ d.inst }}</div>
+        </div>
+        <div class="small muted">{{ d.year }}</div>
+      </div>
+      <div class="small" style="margin-top:6px">{{ d.detail }}</div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
